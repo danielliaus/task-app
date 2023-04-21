@@ -1,0 +1,27 @@
+<div class="task-item mat-elevation-z2" (click)="openDialog()">
+    <div class="task-item-header" [style.background-color]="task.color">
+      <div class="task-item-priority">
+        <mat-icon *ngIf="task.priority === 1">priority_high</mat-icon>
+        <mat-icon *ngIf="task.priority === 2">low_priority</mat-icon>
+        <mat-icon *ngIf="task.priority === 3">toggle_off</mat-icon>
+      </div>
+      <h3 class="task-item-title">{{ task.title }}</h3>
+    </div>
+    <div class="task-item-body">
+      <div class="task-item-description">{{ task.description }}</div>
+      <div class="task-item-duedate">
+        <mat-icon>event</mat-icon>
+        <span>{{ task.dueDate | date: 'MMM d, y' }}</span>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button (click)="editTask(); $event.stopPropagation()">
+        EDIT
+      </button>
+      <button mat-button (click)="deleteTaskConfirm(); $event.stopPropagation()">
+        DELETE
+      </button>
+    </mat-card-actions>
+  </div>
+  

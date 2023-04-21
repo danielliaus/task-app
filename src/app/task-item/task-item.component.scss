@@ -1,0 +1,47 @@
+.task-item {
+    margin: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-item:hover {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .task-item-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .task-item-priority {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+  
+  .task-item-title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .task-item-body {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .task-item-description {
+    margin-bottom: 0.5rem;
+  }
+  
+  .task-item-duedate {
+    display: flex;
+    align-items: center;
+    color: #777;
+  }
+  
