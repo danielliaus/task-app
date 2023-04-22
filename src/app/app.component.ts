@@ -9,12 +9,16 @@ import { Task } from './task.model';
 })
 export class AppComponent implements OnInit {
   tasks: Task[] = [];
+  
+  // Retrieve tasks from local storage on initialization
   constructor(private taskService: TaskService) {
     const tasksJson = localStorage.getItem('tasks');
     if (tasksJson) {
       this.tasks = JSON.parse(tasksJson);
     }
   }
+
+  // Sorts the task array by priority and due date
   sortByPriorityAndDueDate(): void {
     this.tasks.sort((a, b) => {
       if (a.priority === b.priority) {
@@ -25,10 +29,13 @@ export class AppComponent implements OnInit {
     });
   }
 
+
+  // Deletes a task from the task array
   deleteTask = (task: Task): void => {
     this.tasks = this.tasks.filter((t) => t.id !== task.id);
   };
 
+  // Automatically generates new tasks every 10 seconds
   ngOnInit() {
     if (this.tasks.length <= 10) {
       setInterval(() => {
@@ -40,8 +47,9 @@ export class AppComponent implements OnInit {
     
   }
 
+
+  // Refreshes the task list by reinitializing the component
   refreshTaskList() {
-    console.log(this.tasks.length);
     // This will trigger a re-render of the task list with the updated data
     this.ngOnInit();
   }

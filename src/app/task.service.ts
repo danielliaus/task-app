@@ -6,8 +6,11 @@ import { Task } from './task.model';
 })
 export class TaskService {
   constructor() {}
+
+  // lastPriority is used to generate random tasks with different priorities
   lastPriority = 3;
 
+  // Generates a random task with a title, description, priority, color, and due date
   generateRandomTask() {
     const titles = [
       'Buy groceries',
@@ -24,6 +27,7 @@ export class TaskService {
       'Vacuum and dust the bedroom',
     ];
     const priorities = [1, 2, 3];
+    // Set the priority of the next task to be the next highest priority
     let lastPriority = this.lastPriority || 3;
     const nextPriority =
       priorities.find((p) => p > lastPriority) || priorities[0];
@@ -38,6 +42,7 @@ export class TaskService {
       '#87cefa',
     ];
 
+    // Generate a random task with a unique ID
     const task = {
       id: this.generateGUID(),
       dueDate: this.generateRandomDate(),
@@ -58,6 +63,7 @@ export class TaskService {
     );
   }
 
+  // Generates a random date within a specified range
   private generateRandomDate(): Date {
     const startDate = new Date(2024, 6, 1).getTime();
     const endDate = new Date(2024, 7, 31).getTime();
@@ -67,6 +73,7 @@ export class TaskService {
     return randomDate;
   }
 
+  // Generates a random GUID
   private generateGUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
